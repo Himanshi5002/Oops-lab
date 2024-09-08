@@ -1,0 +1,50 @@
+include #include
+
+using namespace std;
+
+class Marks { private: int no; float perc;
+
+public: // Constructor to initialize marks Marks(int n, float p) { no = n; perc = p; }
+
+int getNo() {
+    return no;
+}
+
+float getPerc() {
+    return perc;
+}
+};
+
+class Student { private: Marks Mobj; // Marks object to store roll number and percentage string name;
+
+public: // Constructor with dummy initial values Student() : Mobj(0, 0.0) {}
+
+void readStudent() {
+    cout << "Enter name: ";
+    cin.ignore(); // Ignore any leftover characters in the input buffer
+    getline(cin, name);
+
+    int no;
+    float perc;
+    cout << "Enter roll number: ";
+    cin >> no;
+    cout << "Enter percentage: ";
+    cin >> perc;
+
+    // Update Marks object with user input
+    Mobj = Marks(no, perc);
+}
+
+void printStudent() {
+    cout << "Name: " << name << endl;
+    cout << "Roll No: " << Mobj.getNo() << endl;
+    cout << "Percentage: " << Mobj.getPerc() << "%" << endl;
+}
+};
+
+int main() { Student st;
+
+st.readStudent();
+st.printStudent();
+
+return 0;
