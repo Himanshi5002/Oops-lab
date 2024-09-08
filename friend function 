@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+class Square{
+    private:
+        int length;
+    public:
+        Square(){
+            length = 0;
+        }
+    
+    Square(int l){
+        length = l;
+    }
+    int perimeter(){
+        return int(4 * length);
+    }
+friend double circle(Square sq);
+};
+double circle (Square sq){
+    double radius = sq.length;
+    return(2 * 3.14 * radius);
+};
+int main(){
+int userLength;
+cout << "enter length";
+cin >> userLength;
+Square s(userLength);
+cout << s.perimeter() << endl;
+cout << circle(s) << endl; 
+return 0;
+}
